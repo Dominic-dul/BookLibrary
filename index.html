@@ -43,6 +43,27 @@
             </tr>
         </tbody>
     </table>
+    <br>
+    <hr>
+    <br>
+    <h2>This is a form for inserting a new book</h2>
+
+    <form action="process.php" method="POST">
+        <div>
+            <label>Name of the book</label>
+            <input type="text" name="bookName">
+        </div>
+        <div>
+            <label>Author of the book</label>
+            <input type="text" name="bookAuthor">
+        </div>
+        <div>
+            <label>Year published</label>
+            <input type="text" name="bookYear">
+        </div>
+        <br>
+        <input type="submit" name="submitButton" value="Submit">
+    </form>
     
 </body>
 </html>
