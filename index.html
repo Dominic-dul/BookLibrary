@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to the book library!</h1>
+    <header id="main-header">
+        <div class="container">
+            <h1>Book library</h1>
+        </div>
     </header>
 
-    <section>
-        <p>
-            In this website you will able to see a list of books. Furthermore, you will be able to perform various actions with them, such as:
-        </p>
-        <ul>
-            <li>Retrieve the list of all books</li>
-            <li>Delete a book</li>
-            <li>Create a new listing of a book</li>
-            <li>New listing5</li>
-        </ul>
+    <nav id="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#">GET</a></li>
+                <li><a href="#">DELETE</a></li>
+                <li><a href="#">POST</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Author</th>
-                    <th>Year released</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Harry Potter</td>
-                    <td>J. K. Rowling</td>
-                    <td>1997</td>
-                </tr>
-                <tr>
-                    <td>Life of Pi</td>
-                    <td>Yann Martel</td>
-                    <td>2001</td>
-                </tr>
-                <tr>
-                    <td>1984r</td>
-                    <td>George Orwell</td>
-                    <td>1949</td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="submitForm.html">
-            <button>New Book</button>
-        </a>
-        <br>
+    <section id="showcase">
+        <div class="container">
+            <h2>Wlcome to our book library!</h2>
+            <p>Bellow you can see the listings of all the books.</p>
+            <br>
+            <p>You can do following actions with them:</p>
+            <ul class="listings">
+                <li>Get all the books from databse</li>
+                <li>Delete a specific book</li>
+                <li>Create a new book</li>
+            </ul>
+        </div>
     </section>
-    <footer>
+
+    <div>
+        <section id="main">
+            <div class="table-wrapper">
+                <table class="fl-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Year released</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Harry Potter</td>
+                            <td>J. K. Rowling</td>
+                            <td>1997</td>
+                        </tr>
+                        <tr>
+                            <td>Life of Pi</td>
+                            <td>Yann Martel</td>
+                            <td>2001</td>
+                        </tr>
+                        <tr>
+                            <td>1984r</td>
+                            <td>George Orwell</td>
+                            <td>1949</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="center-wrapper">
+                <a href="submitForm.html">
+                    <button class="button">New Book</button>
+                </a>
+            </div>
+            <br>
+        </section>
+    </div>
+    <footer id="main-footer">
         <p>Copyright &copy 2022 Dominykas Dulevicius</p>
     </footer>
 </body>
+
 </html>
