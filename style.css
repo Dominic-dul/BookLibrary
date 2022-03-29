@@ -79,19 +79,19 @@ body{
     margin-top: 40px;
 }
 
-.my-form{
+#my-form{
     padding: 20px;
 }
 
-.my-form .form-group{
+#my-form .form-group{
     padding-bottom: 15px;
 }
 
-.my-form label{
+#my-form label{
     display: block;
 }
 
-.my-form input[type ="text"]{
+#my-form input[type ="text"]{
     padding: 8px;
     width: 100%;
 }
@@ -102,7 +102,7 @@ body{
 }
 
 /*Table is floating in the middle*/
-.fl-table {
+#fl-table {
     border-radius: 5px;
     font-size: 12px;
     font-weight: normal;
@@ -115,19 +115,19 @@ body{
 }
 
 /*All text in the columns is in middle*/
-.fl-table td, .fl-table th {
+#fl-table td, #fl-table th {
     text-align: center;
     padding: 8px;
 }
 
 /*Borders on sides*/
-.fl-table td {
+#fl-table td {
     border-right: 1px solid #f8f8f8;
     font-size: 12px;
 }
 
 /*Header color*/
-.fl-table thead th {
+#fl-table thead th {
     color: #ffffff;
     background: #4FC3A1;
 }

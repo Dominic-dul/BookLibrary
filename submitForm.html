@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Form</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,23 +17,64 @@
     </header>
 
     <section>
-        <form action="index.html" class="my-form">
+        <form action="index.html" id="my-form">
+            <div class = "msg"></div>
             <div class="form-group">
-                <label>Name of the book</label>
-                <input type="text" name="bookName">
+                <label for="bookName">Name of the book</label>
+                <input type="text" id="bookName">
             </div>
             <div class="form-group">
-                <label>Author of the book</label>
-                <input type="text" name="bookAuthor">
+                <label for="bookAuthor">Author of the book</label>
+                <input type="text" id="bookAuthor">
             </div>
             <div class="form-group">
-                <label>Year published</label>
-                <input type="text" name="bookYear">
+                <label for="yearPublished">Year published</label>
+                <input type="text" id="bookYear">
             </div>
             <br>
             <input class="button" type="submit" name="submitButton" value="Submit">
         </form>
     </section>
+    
+    <div>
+        <section id="main">
+            <div class="table-wrapper">
+                <table id="fl-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Year released</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Harry Potter</td>
+                            <td>J. K. Rowling</td>
+                            <td>1997</td>
+                        </tr>
+                        <tr>
+                            <td>Life of Pi</td>
+                            <td>Yann Martel</td>
+                            <td>2001</td>
+                        </tr>
+                        <tr>
+                            <td>1984r</td>
+                            <td>George Orwell</td>
+                            <td>1949</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="center-wrapper">
+                <a href="submitForm.html">
+                    <button class="button">New Book</button>
+                </a>
+            </div>
+            <br>
+        </section>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
