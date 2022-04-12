@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>This is a form for inserting a new book</h1>
+        </div>
+    </header>
+
+    <section>
+        <form action="index" id="my-form">
+            <div class = "msg"></div>
+            <div class="form-group">
+                <label for="bookName">Name of the book</label>
+                <input type="text" id="bookName">
+            </div>
+            <div class="form-group">
+                <label for="bookAuthor">Author of the book</label>
+                <input type="text" id="bookAuthor">
+            </div>
+            <div class="form-group">
+                <label for="yearPublished">Year published</label>
+                <input type="text" id="bookYear">
+            </div>
+            <br>
+            <input class="button" type="submit" name="submitButton" value="Submit">
+        </form>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>

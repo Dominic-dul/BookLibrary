@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>Book library</h1>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#">GET</a></li>
+                <li><a href="#">DELETE</a></li>
+                <li><a href="#">POST</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="showcase">
+        <div class="container">
+            <h2>Wlcome to our book library!</h2>
+            <p>Bellow you can see the listings of all the books.</p>
+            <br>
+            <p>You can do following actions with them:</p>
+            <ul class="listings">
+                <li>Get all the books from databse</li>
+                <li>Delete a specific book</li>
+                <li>Create a new book</li>
+            </ul>
+        </div>
+    </section>
+
+    <div>
+        <section id="main">
+            <div class="table-wrapper">
+                <table id="fl-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Year released</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Harry Potter</td>
+                            <td>J. K. Rowling</td>
+                            <td>1997</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Life of Pi</td>
+                            <td>Yann Martel</td>
+                            <td>2001</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="center-wrapper">
+                <a href="submitForm">
+                    <button class="button">New Book</button>
+                </a>
+            </div>
+            <br>
+        </section>
+    </div>
+    <footer id="main-footer">
+        <p>Copyright &copy 2022 Dominykas Dulevicius</p>
+    </footer>
+    <script src = "main.js"></script>
+</body>
+
+</html>
