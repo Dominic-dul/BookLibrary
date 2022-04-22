@@ -74,7 +74,7 @@ def add_book():
 @app.route("/book/modify/<book_id>", methods=["GET", "POST"])
 def modify_book(book_id):
     if request.method == "GET":
-        connection = psycopg2.connect(host="localhost", database="library", user="postgres", password="12344")
+        connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM books WHERE book_id = %s", (book_id,))
         single_book = cursor.fetchone()
@@ -82,14 +82,16 @@ def modify_book(book_id):
         cursor.close()
         connection.close()
 
-        return render_template("book_modify.html", book = single_book)
+        return render_template("modifyBook.html", book = single_book)
 
     if request.method == "POST":
         title = request.form.get("title")
-        connection = psycopg2.connect(host="localhost", database="library", user="postgres", password="12344")
+        author = request.form.get("author")
+        year = request.form.get("year")
+        connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
         connection.autocommit = True
         cursor = connection.cursor()
-        cursor.execute("UPDATE books SET book_name = %s WHERE book_id = %s", (title, book_id))
+        cursor.execute("UPDATE books SET book_name = %s, book_author = %s, book_release = %s WHERE book_id = %s", (title, author, year, book_id))
         cursor.close()
         connection.close()
 
