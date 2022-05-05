@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif
+        }
+
+        .w3-bar,
+        h1,
+        button {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .fa-anchor,
+        .fa-coffee {
+            font-size: 200px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Books</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Users</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lendings</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Games</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Books</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Users</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Lendings</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Games</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">BOOK LIBRARY</h1>
+    </header>
+
+    <!-- Book Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>Books</h1>
+                <h5 class="w3-padding-32">This page represents a book library with the list of books and certain action you can do
+                    with each book. These action are: add a new book, modify a book and delete a book. To add a new book, you have to
+                    provide book name, author and the year it was released. Similarly works the modification.
+                    You need to provide all the same fields and the book on the list is being updated.
+                    The id of the book is generated automatically.
+                </h5>
+            </div>
+
+            <div class="w3-third w3-center">
+                <i class="fa fa-book w3-padding-64 w3-text-red" style="font-size:300px"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third w3-center">
+                <i class="fa fa-user w3-padding-64 w3-text-red w3-margin-right" style="font-size:200px"></i>
+            </div>
+
+            <div class="w3-twothird">
+                <h1>Users</h1>
+                <h5 class="w3-padding-32">In this page you are able to see the list of users that are members of this book library. Furthermore,
+                    your are able to perform following actions with users: add a new user, delete a user and modify an existing user. To add a 
+                    new user, you need to provide his name. The id is generated automatically. To modify a user, you can modify his name. To delete
+                    a user, you just need to press a button.
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lendings Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>Lendings</h1>
+                <h5 class="w3-padding-32">In this page you can assign certain book from the library to a certain user. This is done
+                    by using drop-down menu and being able to see all the list of users and books
+                </h5>
+            </div>
+
+            <div class="w3-third w3-center">
+                <i class="fa fa-tasks w3-padding-64 w3-text-red" style="font-size:200px"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Games Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third w3-center">
+                <i class="fa fa-gamepad w3-padding-64 w3-text-red w3-margin-right" style="font-size:200px"></i>
+            </div>
+
+            <div class="w3-twothird">
+                <h1>Games</h1>
+                <h5 class="w3-padding-32">This is a page for the game management part in the library. In this page you can perform
+                    these following actions: add a new game, delete a new game and modify a game. Adding and deleting a game 
+                    works in the same way as with users and books. When modifying a book, you need to provide parts of the game
+                    by giving part name and the quantity of the game part.
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">This website was built using landing page template from <a href="https://www.w3schools.com/" target="_blank">w3.schools</a>
+        . Other tools used: html and css for front-end, postgresql for database and python back-end to connect database to the front-end</h1>
+    </div>
+
+    <!-- Footer -->
+    <!-- <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <div class="w3-xlarge w3-padding-32">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer> -->
+
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <p>Copyright &copy 2022 Dominykas Dulevicius</p>
+    </footer>
+
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

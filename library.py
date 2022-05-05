@@ -1,6 +1,6 @@
 from multiprocessing import connection
 import uuid
-from flask import Flask, request, send_from_directory
+from flask import Flask, redirect, request, send_from_directory
 from flask import render_template
 import psycopg2
 
@@ -50,7 +50,7 @@ def delete_book(book_id):
     cursor.close()
     connection.close()
  
-    return show_books()
+    return redirect("/books")
 
 @app.route("/book/add", methods=["GET", "POST"])
 def add_book():
@@ -69,7 +69,7 @@ def add_book():
     cursor.close()
     connection.close()
 
-    return show_books()
+    return redirect("/books")
 
 @app.route("/book/modify/<book_id>", methods=["GET", "POST"])
 def modify_book(book_id):
@@ -95,7 +95,7 @@ def modify_book(book_id):
         cursor.close()
         connection.close()
 
-        return show_books()
+    return redirect("/books")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, threaded=True, debug=True)
