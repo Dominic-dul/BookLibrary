@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+        <style>
+            input, select, textarea, button {
+                font-family: inherit;
+                font-size: inherit;
+            }
+        </style>
+        <link rel="stylesheet" href="../static/style.css">
+
+    </head>
+
+    <body>
+        <header id="main-header">
+            <div class="container">
+                <h1>This is a form for adding new lending</h1>
+            </div>
+        </header>
+
+        <form id="my-form" action="/lending/add" method="post">
+            <div class="form-group"> 
+                <label for="userName">User</label>
+                <select name="user">
+                    {% for user in users %}
+                        <option value="{{user[0]}}">{{user[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group"> 
+                <label for="bookName">Book</label>
+                <select name="book">
+                    {% for book in books %}
+                        <option value="{{book[0]}}">{{book[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Until</label>
+                <input type="text" id="until" name="until">
+            </div>
+
+            <div style="margin-top: 10px">
+                <input type="submit" value="Save" style="background: none; border: none; color: green; text-decoration: underline; cursor: pointer; margin: 0px; padding: 0px;"/>
+                <a style="color: orange" href="/lendings">Cancel</a>
+            </div>
+        </form>
+    </body>
+</html>

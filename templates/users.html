@@ -62,16 +62,16 @@
 
     <section id="showcase">
         <div class="container">
-            <h2>Welcome to our book library!</h2>
-            <p>Bellow you can see the listings of all the books.</p>
+            <h2>Welcome to our users list!</h2>
+            <p>Bellow you can see the listing of all the users in our library.</p>
             <br>
             <p>You can do following actions with them:</p>
             <ul class="listings">
-                <li>Get all the books from databse</li>
-                <li>Delete a specific book</li>
-                <li>Create a new book</li>
+                <li>Get all the users from databse</li>
+                <li>Delete a specific user</li>
+                <li>Create a new user</li>
             </ul>
-            <div style="margin-bottom: 10px;">BOOKS ({{ numberOfBooks }})</div>
+            <div style="margin-bottom: 10px;">USERS ({{ numberOfUsers }})</div>
         </div>
     </section>
 
@@ -83,24 +83,24 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Author</th>
-                            <th>Year released</th>
+                            <th>Surname</th>
+                            <th>Nickname</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for book in books %}
+                        {% for user in users %}
                         <tr>
-                            <td>{{ book[0] }}</td>
-                            <td>{{ book[1] }}</td>
-                            <td>{{ book[2] }}</td>
-                            <td>{{ book[3] }}</td>
+                            <td>{{ user[0] }}</td>
+                            <td>{{ user[1] }}</td>
+                            <td>{{ user[2] }}</td>
+                            <td>{{ user[3] }}</td>
                             <td>
-                                <a href="/book/modify/{{ book[0] }}">
+                                <a href="/user/modify/{{ user[0] }}">
                                     <button class="button">Modify</button>
                                     <!-- How to not see the href link? -->
                                 </a>
-                                <a href="/book/delete/{{ book[0] }}">
+                                <a href="/user/delete/{{ user[0] }}">
                                     <button class="button">Delete</button>
                                 </a>
                             </td>
@@ -110,8 +110,8 @@
                 </table>
             </div>
             <div class="center-wrapper">
-                <a href="/book/add">
-                    <button class="button">New Book</button>
+                <a href="/user/add">
+                    <button class="button">New User</button>
                 </a>
             </div>
             <br>

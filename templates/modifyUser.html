@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify User</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>This is a form for modifying a user</h1>
+        </div>
+    </header>
+
+    <section>
+        <form id="my-form" action="/user/modify/{{ user[0] }}" method="post">
+            <div>Name: <input autofocus name="name" value="{{ user[1] }}"></div>
+            <div>Surname: <input autofocus name="surname" value="{{ user[2] }}"></div>
+            <div>Nickname: <input autofocus name="nickname" value="{{ user[3] }}"></div>
+            <input class="button" type="submit" value="Save">
+        </form>
+    </section>
+</body>
+
+</html>

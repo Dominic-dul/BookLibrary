@@ -62,16 +62,16 @@
 
     <section id="showcase">
         <div class="container">
-            <h2>Welcome to our book library!</h2>
-            <p>Bellow you can see the listings of all the books.</p>
+            <h2>Welcome to our lendings list!</h2>
+            <p>Bellow you can see the connections between the users and books</p>
             <br>
             <p>You can do following actions with them:</p>
             <ul class="listings">
-                <li>Get all the books from databse</li>
-                <li>Delete a specific book</li>
-                <li>Create a new book</li>
+                <li>Get all the lendings from databse</li>
+                <li>Delete a specific lending</li>
+                <li>Create a new lending</li>
             </ul>
-            <div style="margin-bottom: 10px;">BOOKS ({{ numberOfBooks }})</div>
+            <div style="margin-bottom: 10px;">LENDINGS ({{ number_of_lendings }})</div>
         </div>
     </section>
 
@@ -81,26 +81,24 @@
                 <table id="fl-table">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Author</th>
-                            <th>Year released</th>
+                            <th>User</th>
+                            <th>Book</th>
+                            <th>Until</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for book in books %}
+                        {% for entry in entries %}
                         <tr>
-                            <td>{{ book[0] }}</td>
-                            <td>{{ book[1] }}</td>
-                            <td>{{ book[2] }}</td>
-                            <td>{{ book[3] }}</td>
+                            <td>{{ entry[1] }}</td>
+                            <td>{{ entry[2] }}</td>
+                            <td>{{ entry[3] }}</td>
                             <td>
-                                <a href="/book/modify/{{ book[0] }}">
+                                <a href="/lending/modify/{{ entry[0] }}">
                                     <button class="button">Modify</button>
                                     <!-- How to not see the href link? -->
                                 </a>
-                                <a href="/book/delete/{{ book[0] }}">
+                                <a href="/lending/delete/{{ entry[0] }}">
                                     <button class="button">Delete</button>
                                 </a>
                             </td>
@@ -110,17 +108,18 @@
                 </table>
             </div>
             <div class="center-wrapper">
-                <a href="/book/add">
-                    <button class="button">New Book</button>
+                <a href="/lending/add">
+                    <button class="button"> Add a new lending</button>
+                </a>
+                <a href="/">
+                    <button class="button">Back to index</button>
                 </a>
             </div>
-            <br>
         </section>
     </div>
     <footer id="main-footer">
         <p>Copyright &copy 2022 Dominykas Dulevicius</p>
     </footer>
-    <script src="main.js"></script>
 </body>
 
 </html>

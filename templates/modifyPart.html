@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify part</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>This is a form for modifying a game part</h1>
+        </div>
+    </header>
+
+    <section>
+        <form id="my-form" action="/part/modify/{{ part[0] }}" method="post">
+            <div class="form-group">
+                <label for="partName">Name of the part</labe>
+                <input type="text" id="partName" autofocus name="name" value="{{ part[1] }}">
+            </div>
+            <div class="form-group">
+                <label for="partQuantity">Author of the book</labe>
+                <input type="number" id="partQuantity" autofocus name="quantity" value="{{ part[2] }}">
+            </div>
+            <input class="button" type="submit" value="Save">
+        </form>
+    </section>
+</body>
+
+</html>
