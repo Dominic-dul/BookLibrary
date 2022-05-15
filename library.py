@@ -1,6 +1,6 @@
 from multiprocessing import connection
 import uuid
-from flask import Flask, redirect, request, send_from_directory
+from flask import Flask, redirect, request, send_from_directory, url_for
 from flask import render_template
 import psycopg2
 
@@ -72,7 +72,6 @@ def modify_book(book_id):
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM books WHERE book_id = %s", (book_id,))
         single_book = cursor.fetchone()
-        print(single_book)
         cursor.close()
         connection.close()
 
@@ -171,10 +170,10 @@ def modify_user(user_id):
 
 @app.route("/lendings")
 def show_lendings():
-    connection = psycopg2.connect(host="localhost", database="library", 
+    connection = psycopg2.connect(host="localhost", database="BooksDatabase", 
         user="postgres", password="12344")
     cursor = connection.cursor()
-    cursor.execute("""SELECT books_users.id, books.book_name, users.user_name, until FROM books_users 
+    cursor.execute("""SELECT books_users.id, users.user_name, books.book_name, until FROM books_users 
         INNER JOIN books ON books_users.book_id = books.book_id 
         INNER JOIN users ON books_users.user_id = users.user_id    
         ORDER BY users.user_name, books.book_name
@@ -189,7 +188,7 @@ def show_lendings():
 @app.route("/lending/add", methods=["GET", "POST"])
 def add_lending():
     if request.method == "GET":
-        connection = psycopg2.connect(host="localhost", database="library", user="postgres", password="12344")
+        connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
         
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM users;")
@@ -203,7 +202,7 @@ def add_lending():
 
         connection.close()
        
-        return render_template("lending_new.html", 
+        return render_template("newLending.html", 
             users = users_from_db, 
             books = books_from_db)
     if request.method == "POST":
@@ -214,7 +213,7 @@ def add_lending():
 
         # take until as text - convert it to date and send to SQL
 
-        connection = psycopg2.connect(host="localhost", database="library", user="postgres", password="12344")
+        connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
         connection.autocommit = True
         cursor = connection.cursor()
         cursor.execute("""INSERT INTO books_users (id, user_id, book_id, until) 
@@ -227,7 +226,7 @@ def add_lending():
 @app.route("/lending/delete/<lending_id>")
 def delete_lending(lending_id):
     connection = psycopg2.connect(host="localhost", 
-        database="library", user="postgres", password="12344")
+        database="BooksDatabase", user="postgres", password="12344")
     connection.autocommit = True
     cursor = connection.cursor()
     cursor.execute("DELETE FROM books_users WHERE id = %s", (lending_id,))
@@ -242,7 +241,7 @@ def delete_lending(lending_id):
 def modify_lending(lending_id):
     if request.method == "GET":
         connection = psycopg2.connect(host="localhost", 
-            database="library", user="postgres", 
+            database="BooksDatabase", user="postgres", 
             password="12344")
         
         cursor = connection.cursor()
@@ -260,12 +259,10 @@ def modify_lending(lending_id):
             FROM books_users WHERE id = %s""", (lending_id,))
         single_lending = cursor.fetchone()
 
-        # make sure lending contains valid date
-
         cursor.close()
         connection.close()
 
-        return render_template("lending_modify.html", 
+        return render_template("modifyLending.html", 
             lending = single_lending, 
             users = users_from_db, 
             books = books_from_db)
@@ -276,7 +273,7 @@ def modify_lending(lending_id):
         user = request.form.get("user")
         
         connection = psycopg2.connect(host="localhost", 
-            database="library", user="postgres", 
+            database="BooksDatabase", user="postgres", 
             password="12344")
         connection.autocommit = True
         cursor = connection.cursor()

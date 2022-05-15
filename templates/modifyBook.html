@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modify book</title>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
-<body>
-    <div style="margin-bottom: 10px;">MODIFY BOOK</div>
 
-    <form action="/book/modify/{{ book[0] }}" method="post">
-        <div>Title: <input autofocus name="title" value="{{ book[1] }}"></div>
-        <div>Author: <input autofocus name="author" value="{{ book[2] }}"></div>
-        <div>Year: <input autofocus name="year" value="{{ book[3] }}"></div>
-        <input type="submit" value="Save">
-    </form>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>This is a form for modifying a book</h1>
+        </div>
+    </header>
+
+    <section>
+        <form id="my-form" action="/book/modify/{{ book[0] }}" method="post">
+            <div class="form-group">
+                <label for="bookName">Title of the book</labe>
+                <input type="text" id="bookName" autofocus name="title" value="{{ book[1] }}">
+            </div>
+            <div class="form-group">
+                <label for="bookAuthor">Author of the book</labe>
+                <input type="text" id="bookAuthor" autofocus name="author" value="{{ book[2] }}">
+            </div>
+            <div class="form-group">
+                <label for="bookYear">Year of the book release</labe>
+                <input type="text" id="bookName" autofocus name="year" value="{{ book[3] }}">
+            </div>
+            <!-- <div>Title: <input autofocus name="title" value="{{ book[1] }}"></div>
+            <div>Author: <input autofocus name="author" value="{{ book[2] }}"></div>
+            <div>Year: <input autofocus name="year" value="{{ book[3] }}"></div> -->
+            <input class="button" type="submit" value="Save">
+        </form>
+    </section>
 </body>
+
 </html>
