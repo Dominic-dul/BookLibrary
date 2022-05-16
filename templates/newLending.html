@@ -9,6 +9,7 @@
                 font-size: inherit;
             }
         </style>
+        <title>New Lending Submit Form</title>
         <link rel="stylesheet" href="../static/style.css">
 
     </head>
@@ -22,7 +23,7 @@
 
         <form id="my-form" action="/lending/add" method="post">
             <div class="form-group"> 
-                <label for="userName">User</label>
+                <label for="userName">User name</label>
                 <select name="user">
                     {% for user in users %}
                         <option value="{{user[0]}}">{{user[1]}}</option>
@@ -30,7 +31,7 @@
                 </select>
             </div>
             <div class="form-group"> 
-                <label for="bookName">Book</label>
+                <label for="bookName">Book name</label>
                 <select name="book">
                     {% for book in books %}
                         <option value="{{book[0]}}">{{book[1]}}</option>
@@ -38,7 +39,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="date">Until</label>
+                <label for="date">Until date</label>
                 <input type="text" id="until" name="until">
             </div>
 
