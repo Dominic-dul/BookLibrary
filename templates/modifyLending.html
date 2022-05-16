@@ -1,47 +1,58 @@
-
 <html>
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
-        <style>
-            input, select, textarea, button {
-                font-family: inherit;
-                font-size: inherit;
-            }
-        </style>
-    </head>
-    <body style="font-family: 'Source Sans Pro', sans-serif; font-size: 20pt;">
-        <div style="margin-bottom: 10px;">ADD LENDING</div>
 
-        <form action="/lending/modify/{{ lending[0] }}" method="post">
-            <div class="form-group">
-                <label for="userName"> User name:</label> 
-                <select name="user">
-                    {% for user in users %}                        
-                        <option value="{{user[0]}}" {{ "selected" if (user[0]==lending[2]) else "" }}>{{user[1]}}</option>
-                    {% endfor %}
-                </select>
-            </div>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <style>
+        input,
+        select,
+        textarea,
+        button {
+            font-family: inherit;
+            font-size: inherit;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}" />
+</head>
 
-            <div class="form-group">
-                <label for="bookName">Book name:</label> 
-                <select name="book">
-                    {% for book in books %}
-                        <option value="{{book[0]}}" {{ "selected" if (book[0]==lending[1]) else "" }}>{{book[1]}}</option>
-                    {% endfor %}
-                </select>
-            </div>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>This is a form for modifying a lending</h1>
+        </div>
+    </header>
 
-            <div class="form-group">
-                <label for="untilDate">Until date:</label>
-                <input type="text" id="until" name="until" value="{{ lending[3] }}">
-            </div>
+    <form id="my-form" action="/lending/modify/{{ lending[0] }}" method="post">
+        <div class="form-group">
+            <label for="userName"> User name:</label>
+            <select name="user">
+                {% for user in users %}
+                <option value="{{user[0]}}" {{ "selected" if (user[0]==lending[2]) else "" }}>{{user[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-            <div style="margin-top: 10px">
-                <input type="submit" value="Save" style="background: none; border: none; color: green; text-decoration: underline; cursor: pointer; margin: 0px; padding: 0px;"/>
-                <a style="color: orange" href="/lendings">Cancel</a>
-            </div>
-        </form>
-    </body>
+        <div class="form-group">
+            <label for="bookName">Book name:</label>
+            <select name="book">
+                {% for book in books %}
+                <option value="{{book[0]}}" {{ "selected" if (book[0]==lending[1]) else "" }}>{{book[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="untilDate">Until date:</label>
+            <input type="text" id="until" name="until" value="{{ lending[3] }}">
+        </div>
+
+        <div style="margin-top: 10px">
+            <input type="submit" value="Save"
+                style="background: none; border: none; color: green; text-decoration: underline; cursor: pointer; margin: 0px; padding: 0px;" />
+            <a style="color: orange" href="/lendings">Cancel</a>
+        </div>
+    </form>
+</body>
+
 </html>

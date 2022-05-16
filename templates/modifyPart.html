@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modify part</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}" />
 </head>
 
 <body>
@@ -20,11 +21,11 @@
         <form id="my-form" action="/part/modify/{{ part[0] }}" method="post">
             <div class="form-group">
                 <label for="partName">Name of the part</labe>
-                <input type="text" id="partName" autofocus name="name" value="{{ part[1] }}">
+                    <input type="text" id="partName" autofocus name="name" value="{{ part[1] }}">
             </div>
             <div class="form-group">
                 <label for="partQuantity">Author of the book</labe>
-                <input type="number" id="partQuantity" autofocus name="quantity" value="{{ part[2] }}">
+                    <input type="number" id="partQuantity" autofocus name="quantity" value="{{ part[2] }}">
             </div>
             <input class="button" type="submit" value="Save">
         </form>
