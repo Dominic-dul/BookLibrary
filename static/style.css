@@ -64,7 +64,8 @@ body{
 }
 
 #showcase{
-    background-image: url('../images/showcase.jpg');
+    /* background-image: url('../images/showcase.jpg'); */
+    background-image: url('/static/images/showcase.png');
     background-position: center right;
     min-height:300px;
     margin-bottom: 30px;
