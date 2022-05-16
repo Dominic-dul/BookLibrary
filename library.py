@@ -350,6 +350,7 @@ def modify_game(game_id):
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM games WHERE id = %s;", (game_id,))
         single_game = cursor.fetchall()
+        # print(single_game)
         cursor.close()
 
         cursor = connection.cursor()

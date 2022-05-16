@@ -21,7 +21,8 @@
         <form id="my-form" action="/game/modify/{{ game[0] }}" method="post">
             <div class="form-group">
                 <label for="gameName">Name of the game:</label>
-                <input autofocus name="name" value="{{ game[1] }}"></div>
+                <input type="text" id="gameName" autofocus name="name" value="{{ game[1] }}">
+            </div>
             <div>
                 <section id="main">
                     <div class="table-wrapper">
