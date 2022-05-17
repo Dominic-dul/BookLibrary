@@ -388,8 +388,8 @@ def modify_game(game_id):
         return redirect("/games")
         
 
-@app.route("/part/modify/<part_id>", methods=["GET", "POST"])
-def modify_part(part_id):
+@app.route("/part/modify/<part_id>/<game_id>", methods=["GET", "POST"])
+def modify_part(part_id, game_id):
     if request.method == "GET":
         connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
 
@@ -399,12 +399,11 @@ def modify_part(part_id):
         cursor.close()
         connection.close()
 
-        return render_template("modifyPart.html", part = single_part)
+        return render_template("modifyPart.html", part = single_part, game_id = game_id)
 
     if request.method == "POST":
         name = request.form.get("name")
         quantity = int(request.form.get("quantity"))
-        print(type(quantity))
 
         connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
 
@@ -414,7 +413,7 @@ def modify_part(part_id):
         cursor.close()
         connection.close()
 
-        return redirect("/games")
+        return redirect(f"/game/modify/{game_id}")
 
 
 @app.route("/part/add/<game_id>", methods=["GET", "POST"])
@@ -433,10 +432,10 @@ def add_part(game_id):
     cursor.close()
     connection.close()
 
-    return redirect("/games")
+    return redirect(f"/game/modify/{game_id}")
 
-@app.route("/part/delete/<part_id>")
-def delete_part(part_id):
+@app.route("/part/delete/<part_id>/<game_id>")
+def delete_part(part_id, game_id):
     connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
 
     connection.autocommit = True
@@ -446,7 +445,7 @@ def delete_part(part_id):
     cursor.close()
     connection.close()
  
-    return redirect("/games")
+    return redirect(f"/game/modify/{game_id}")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, threaded=True, debug=True)

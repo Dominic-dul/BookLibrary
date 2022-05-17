@@ -18,7 +18,7 @@
     </header>
 
     <section>
-        <form id="my-form" action="/part/modify/{{ part[0] }}" method="post">
+        <form id="my-form" action="/part/modify/{{ part[0] }}/{{ game_id }}" method="post">
             <div class="form-group">
                 <label for="partName">Name of the part</label>
                     <input type="text" id="partName" autofocus name="name" value="{{ part[1] }}">
