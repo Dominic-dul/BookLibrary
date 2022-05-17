@@ -69,9 +69,11 @@ def add_book():
 def modify_book(book_id):
     if request.method == "GET":
         connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
+        
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM books WHERE book_id = %s", (book_id,))
         single_book = cursor.fetchone()
+        #print(single_book)
         cursor.close()
         connection.close()
 
@@ -81,8 +83,10 @@ def modify_book(book_id):
         title = request.form.get("title")
         author = request.form.get("author")
         year = request.form.get("year")
+        
         connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
         connection.autocommit = True
+        
         cursor = connection.cursor()
         cursor.execute("UPDATE books SET book_name = %s, book_author = %s, book_release = %s WHERE book_id = %s", (title, author, year, book_id))
         cursor.close()
@@ -329,11 +333,10 @@ def add_game():
     cursor.execute("INSERT INTO games (id, name) VALUES (%s, %s)", (game_id, name))
     cursor.close()
 
-    id = str(uuid.uuid4())
-
-    cursor = connection.cursor()
-    cursor.execute("INSERT INTO game_parts (id, game_id) VALUES (%s, %s)", (id, game_id))
-    cursor.close()
+    # id = str(uuid.uuid4())
+    # cursor = connection.cursor()
+    # cursor.execute("INSERT INTO game_parts (id, game_id) VALUES (%s, %s)", (id, game_id))
+    # cursor.close()
 
     connection.close()
 
@@ -348,9 +351,8 @@ def modify_game(game_id):
             password="12344")
         
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM games WHERE id = %s;", (game_id,))
-        single_game = cursor.fetchall()
-        # print(single_game)
+        cursor.execute("SELECT id, name FROM games WHERE id = %s;", (game_id,))
+        single_game = cursor.fetchone()
         cursor.close()
 
         cursor = connection.cursor()
@@ -364,8 +366,6 @@ def modify_game(game_id):
 
     if request.method == "POST":
         game_name = request.form.get("name")
-        # game_part_name = request.form.get("game_part_name")
-        # quantity = request.form.get("quantity")
         
         connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
         connection.autocommit = True
@@ -373,6 +373,11 @@ def modify_game(game_id):
         cursor = connection.cursor()
         cursor.execute("UPDATE games SET name = %s WHERE id = %s", (game_name, game_id))
         cursor.close()
+
+        # cursor = connection.cursor()
+        # cursor.execute("SELECT * FROM games WHERE id = %s;", (game_id,))
+        # single_game = cursor.fetchall()
+        # cursor.close()
 
         # cursor = connection.cursor()
         # cursor.execute("UPDATE game_parts SET name = %s, quantity = %s WHERE game_id = %s", (game_part_name, quantity, game_id))
@@ -398,36 +403,37 @@ def modify_part(part_id):
 
     if request.method == "POST":
         name = request.form.get("name")
-        quantity = request.form.get("quantity")
+        quantity = int(request.form.get("quantity"))
+        print(type(quantity))
 
         connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
 
         connection.autocommit = True
         cursor = connection.cursor()
-        cursor.execute("UPDATE game_parts SET name = %s, quantity = %d, WHERE id = %s", (name, quantity, part_id))
+        cursor.execute("UPDATE game_parts SET name = %s, quantity = %s WHERE id = %s", (name, quantity, part_id))
         cursor.close()
         connection.close()
 
-        return redirect("/games") #How to redirect to modifyGame with certain game_id?
+        return redirect("/games")
 
 
 @app.route("/part/add/<game_id>", methods=["GET", "POST"])
 def add_part(game_id):
     if request.method == "GET":
-        return render_template("newPart.html")
+        return render_template("newPart.html", game_id = game_id)
     if request.method == "POST":
         id = str(uuid.uuid4())
         name = request.form.get("name")
-        quantity = request.form.get("quantity")
+        quantity = int(request.form.get("quantity"))
 
     connection = psycopg2.connect(host="localhost", database="BooksDatabase", user="postgres", password="12344")
     connection.autocommit = True
     cursor = connection.cursor()
-    cursor.execute("INSERT INTO game_parts (id, name, quantity, game_id) VALUES (%s, %s, %d, %s)", (id, name, quantity, game_id))
+    cursor.execute("INSERT INTO game_parts (id, name, quantity, game_id) VALUES (%s, %s, %s, %s)", (id, name, quantity, game_id))
     cursor.close()
     connection.close()
 
-    return redirect("/games") #How to redirect to modifyGame with certain game_id?
+    return redirect("/games")
 
 @app.route("/part/delete/<part_id>")
 def delete_part(part_id):
@@ -440,7 +446,7 @@ def delete_part(part_id):
     cursor.close()
     connection.close()
  
-    return redirect("/games") #How to redirect to modifyGame with certain game_id?
+    return redirect("/games")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, threaded=True, debug=True)

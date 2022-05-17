@@ -23,51 +23,56 @@
                 <label for="gameName">Name of the game:</label>
                 <input type="text" id="gameName" autofocus name="name" value="{{ game[1] }}">
             </div>
-            <div>
-                <section id="main">
-                    <div class="table-wrapper">
-                        <table id="fl-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Part</th>
-                                    <th>Quantity</th>
-                                    <th>Game ID</th>
-                                    <th>ACtion</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for part in parts %}
-                                <tr>
-                                    <td>{{ part[0] }}</td>
-                                    <td>{{ part[1] }}</td>
-                                    <td>{{ part[2] }}</td>
-                                    <td>{{ part[3] }}</td>
-                                    <td>
-                                        <a href="/part/modify/{{ part[0] }}">
-                                            <button class="button">Modify</button>
-                                            <!-- How to not see the href link? -->
-                                        </a>
-                                        <a href="/part/delete/{{ part[0] }}">
-                                            <button class="button">Delete</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="center-wrapper">
-                        <a href="/part/add/{{ game[0] }}">
-                            <button class="button">New Part</button>
-                        </a>
-                    </div>
-                    <br>
-                </section>
-            </div>
             <input class="button" type="submit" value="Save">
         </form>
     </section>
+
+    <div>
+        <section id="main">
+            <div class="table-wrapper">
+                <table id="fl-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Part</th>
+                            <th>Quantity</th>
+                            <th>Game ID</th>
+                            <th>ACtion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for part in parts %}
+                        <tr>
+                            <td>{{ part[0] }}</td>
+                            <td>{{ part[1] }}</td>
+                            <td>{{ part[2] }}</td>
+                            <td>{{ part[3] }}</td>
+                            <td>
+                                <a href="/part/modify/{{ part[0] }}">
+                                    <button class="button">Modify</button>
+                                </a>
+                                <a href="/part/delete/{{ part[0] }}">
+                                    <button class="button">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="center-wrapper">
+                <a href="/part/add/{{ game[0] }}">
+                    <button class="button">New Part</button>
+                </a>
+            </div>
+            <br>
+            <div class="center-wrapper">
+                <a href="/games">
+                    <button class="button">Back to Games</button>
+                </a>
+            </div>
+        </section>
+    </div>
 
     <footer id="main-footer">
         <p>Copyright &copy 2022 Dominykas Dulevicius</p>
