@@ -1,5 +1,9 @@
-# FirstWeb
-This is my first web app made for Application Engineering for Business Informatics course
+# Library
+## Library web application which allows the following actions:
+### Delete, Add, Modify User, Book, Game
+### Assign specific book to specific user
+### Delete, Add, Modify Game Parts within Game page
 
-The main aim of this project is to create a book library connected with database. There should be a possibility to create a new listing, delete listing and retreive all listings.
-This should be implemented using endpoints and RESTful approach
+## The Front-End part was written using HTML, CSS and w3schools designing framework.
+## The Back-End part was written using Python and Flask framework.
+## The DataBase function were written in PostgreSQL using PgAdmin4 UI.
