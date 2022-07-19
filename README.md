@@ -6,4 +6,4 @@
 
 ## The Front-End part was written using HTML, CSS and w3schools designing framework.
 ## The Back-End part was written using Python and Flask framework.
-## The DataBase function were written in PostgreSQL using PgAdmin4 UI.
+## The DataBase functions were written in PostgreSQL using PgAdmin4 UI.
